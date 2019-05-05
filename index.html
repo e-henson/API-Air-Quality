@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>pollinator</title>
+    <title>pollut.or</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,8 +15,30 @@
             <input type="text" name="search" placeholder="Search your city..." autocomplete="off">
         </form>
 
-        <div class="results">
+        <ul id="results"></ul>
+    </div>
 
+    <div id = "about" class="about">
+            <a href="#">About</a>
+    </div>
+
+    <div class="toggle-nav"> 
+
+        <div id="exit-nav">
+            <a href="#">exit</a>
+        </div>
+
+        <h1>
+            pollut.or uses World Air Quality Index (WAQI) data to allow users to search the air quality for a searched location. 
+        </h1>
+
+        <div class="indicators">
+            <div class="circle circle-green-good"></div>
+            <div class="circle circle-yellow-moderate"></div> 
+            <div class="circle circle-orange-unhealthy"></div> 
+            <div class="circle circle-red-v-unhealthy"></div> 
+            <div class="circle circle-purple-v-v-unhealthy"></div> 
+            <div class="circle circle-purple-hazardous"></div> 
         </div>
     </div>
 
