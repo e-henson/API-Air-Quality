@@ -24,10 +24,6 @@ body, html {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* body {
-    overflow: auto;
-} */
-
 
 
 div.content {
@@ -46,6 +42,7 @@ input {
     width: 100%;
     font-family: Relative;  
     background-color: white;  
+    border-radius: 0;
 }
 
 input:focus {
@@ -170,12 +167,8 @@ a.exit {
 }
 
 .toggle-content {
-    /* right: -50%; */
-    margin-right: 20px;
-    margin-left: 20px;
-    margin-top: 70px;
+    margin: 70px 20px 0px 20px;
     z-index: 10;
-    /* height: 100%; */
 
 }
 
@@ -196,8 +189,6 @@ h1, h2 {
 
 
 h1 {
-    /* margin-top: 10px; */
-
     margin-right: 5px;
     margin-block-start: 0px;
 }
@@ -239,35 +230,13 @@ h2 {
     background-color: rgb(66, 5, 66) ;        
 }
 
-/* .circle-indicator {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-bottom: -1.4px;
-    margin-left: 5px;
-
-} */
-
-
-
-
-
-
-
-
-/* //everything */
-
 
 
 @media screen and (min-width: 320px) and (max-width: 550px) {
 
-
     .on {
         width: 100%;
     }
-
-
 
     h1, h2, li {
         font-size: 12px;
@@ -284,8 +253,7 @@ h2 {
 
     a.exit, a.about {
         font-size: 12px;
-        padding-top: 14px;
-        padding-bottom: 14px;
+        padding: 14px 0px 14px 0px;
     }
 
     a:hover {
@@ -317,9 +285,9 @@ h2 {
     }
 
     input {
+        width: 100%;
         height: 18px;
         font-size: 12px;
-        width: 100%;
         padding: 20px 0px 20px 10px;
     }
 
@@ -364,7 +332,6 @@ h2 {
 
     li {
         font-size: 12px;
-        /* margin: 10px; */
     }
 
     h1, h2, li {
@@ -477,6 +444,6 @@ h2 {
         margin-left: 0px;
     }
 
-
 }   
+
 
