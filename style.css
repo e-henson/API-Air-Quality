@@ -1,52 +1,49 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 @font-face {
     font-family: Relative;
     src: url('Relative-10Pitch.otf');
 }
 
+@font-face {
+    font-family: Relative Italic;
+    src: url('Relative-BookItalic.otf');
+}
+
+html {
+    overflow: hidden;
+}
+
 body, html {
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-    width: 100vw;
-}
+/* body {
+    overflow: auto;
+} */
+
+
 
 div.content {
     position: absolute;
+    width: 100%;
+    height: auto;
 
 }
-
-.toggle-nav {
-    display: none;
-
-}
-
-
-.on {
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    background-color: grey;
-    font-family: Relative, Helvetica;
-    color: black;
-    font-size: 8px;
-    margin-right: 0;
-    right: 0px;
-    display: block;
-}
-
-
-
-h1 {
-    margin: 24px;
-    line-height: 20px;
-
-}
-
-
+    
 
 input {
+    height: 25px;
+    border: 1px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
     font-family: Relative;  
     background-color: white;  
 }
@@ -68,184 +65,418 @@ input:focus {
     color: #d3d3d3;
 }  
 
+section {
+    overflow: hidden;
+}
+
 div.aqi {
     display: inline-block;
 }
 
 
-
-/* div.good {
-    display: inline-block;
-} */
-
-.circle-green-good {
-    background-color: greenyellow;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-bottom: -1.4px;
-    margin-left: 5px;
+.loader {
+    width: 16px;
 }
-
-.circle-yellow-moderate {
-    background-color: yellow;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-bottom: -1.4px;
-    margin-left: 5px;
-}
-
-.circle-orange-unhealthy {
-    background-color: orange;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-bottom: -1.4px;   
-    margin-left: 5px; 
-}
-
-.circle-red-v-unhealthy {
-    background-color: red;    
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-bottom: -1.4px;    
-    margin-left: 5px;
-}
-
-.circle-purple-v-v-unhealthy {
-    background-color: purple;  
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    display: inline-block;  
-    margin-bottom: -1.4px;
-    margin-left: 5px;
-}
-
-.circle-purple-hazardous {
-    background-color: brown; 
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    display: inline-block;  
-    margin-bottom: -1.4px; 
-    margin-left: 5px;
-}
-
-
-
-
-
-@media screen and (min-width: 768px) {
-form {
-    width: 33%;
-}
+/*results*/
 
 #results {
-    /* width: 100%; */
-    display: flex;
-    flex-flow: column wrap;  
-    /* padding-left: 50px; */
-    overflow: hidden;
-    /* justify-content: space-between; */
-   
-   
+    margin-top: 12px;
+    overflow: auto;
+    
+}
+
+ul {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 0;
+    height: 80vh;
+    font-family: Relative;        
+    color: white;
+    margin-block-start: 0px;
 }
 
 li {
-    /* flex: 1; */
-    width: 50%;
-    /* margin-left: 10px; */
+    margin-top: 0;
+    list-style: none;
+    margin-bottom: 12px;
+    line-height: 18px;
+    font-size: 16px;
 }
 
-}
 
-/* @media screen and (max-width: 481px) {
-#results {
-    display: block;
-}
-
+/* 'about page' stuff */
+/* about button */
 div.about {
+    position: fixed;
+    font-family: Relative, Helvetica;
+    color: black;
+    font-size: 16px;
+    bottom: 0;
+    margin-left: 10px; 
+    text-decoration: none;
+    color: black;
+}
+
+a.about { 
+   text-decoration: none;
+   color: black;    
+   padding: 14px 9px 14px 9px;
+   background-color: white;
+   border: 1px solid black;
+}
+
+/* about layer */
+a.exit {
+    text-decoration: none;
+    color: black;    
+    font-size: 16px;
+    background-color: white;
+    border: 1px solid black;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+#exit-nav {
+    margin-left: 10px;
+    position: fixed;
+}
+
+.toggle-nav, .on {
+    display: none;
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition-timing-function: ease-out;
+    background-color: grey;
+    font-family: Relative, Helvetica;
+    color: black;
+    font-size: 8px;
+    margin-right: 0;
+    display: inline-block;  
+    overflow: scroll; 
+
+}
+
+.toggle-nav {
+    right: -50%;
+}
+
+.on {
+    right: 0px;
+}
+
+.toggle-content {
+    /* right: -50%; */
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 70px;
+    z-index: 10;
+    /* height: 100%; */
+
+}
+
+.introduction, .indicators {
+    margin-bottom: 12px;
+}
+
+#key {
+    font-family: Relative Italic;
+}
+
+h1, h2 {
+    font-weight: normal;
+    line-height: 18px;
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+
+h1 {
+    /* margin-top: 10px; */
+
+    margin-right: 5px;
+    margin-block-start: 0px;
+}
+
+h2 {
+    margin-top: 0px;
+}
+
+.circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: -1.4px; 
+}
+
+#good, .circle-green-good {
+    background-color: greenyellow;        
+}
+
+#moderate, .circle-yellow-moderate {
+    background-color: yellow ;        
+}
+
+#sensitive, .circle-orange-unhealthy {
+    background-color: orange ;        
+}
+
+#unhealthy, .circle-red-v-unhealthy {
+    background-color: red ;        
+}
+
+#very-unhealthy, .circle-purple-v-v-unhealthy {
+    background-color: rgb(150, 3, 150);        
+}
+
+#hazardous, .circle-purple-hazardous {
+    background-color: rgb(66, 5, 66) ;        
+}
+
+/* .circle-indicator {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: -1.4px;
+    margin-left: 5px;
 
 } */
 
-@media screen and (min-width: 320px) and (max-width: 480px) {
-    /* #results {
-        display: block;
-    }   */
 
-    a {
-        background-color: white;
-        border: 1px solid black;
-        padding: 
-        /* padding: 20px; */
+
+
+
+
+
+
+/* //everything */
+
+
+
+@media screen and (min-width: 320px) and (max-width: 550px) {
+
+
+    .on {
+        width: 100%;
     }
 
 
-}
 
+    h1, h2, li {
+        font-size: 12px;
+        line-height: 14px;
+    }
 
+    h1 {
+        margin-right: 0px;
+    }
 
-@media screen and (min-width: 320px) {
+    #exit-nav {
+        margin-top: 24px;
+    }
 
-    div.content {
-        width: 100%;
+    a.exit, a.about {
+        font-size: 12px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    a:hover {
+        cursor: pointer;
+    }
+
+    .about {
+        margin-bottom: 24px;
+    }
+
+    ul {
+        overflow: scroll;
+        margin-right: 10px;
+    }
+
+    #results {
+        height: 80vh;
+        margin-top: 65px;   
+    }
+
+    .toggle-content {
+        margin-top: 60px;
     }
 
     form {
-        margin: 10px 30px 10px 10px;
+        position: fixed;
+        width: 100%;
+        padding: 10px 10px 0px 10px;
     }
-        
+
+    input {
+        height: 18px;
+        font-size: 12px;
+        width: 100%;
+        padding: 20px 0px 20px 10px;
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color:#d3d3d3;
+        font-size: 12px;
+        opacity: 1; /* Firefox */
+    }
+    
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #d3d3d3;
+        font-size: 12px;
+    }
+    
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #d3d3d3;
+        font-size: 12px;
+    } 
+
+    .circle, .circle-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        font-size: 16px;
+        display: inline-block;
+        margin-bottom: -2px; 
+    }
+
+    .circle-indicator {
+        margin-left: 5px;
+    }
+
+    .circle {
+        margin-left: 0px;
+    }
+
+
+}
+
+
+@media screen and (min-width: 551px) {
+
+    li {
+        font-size: 12px;
+        /* margin: 10px; */
+    }
+
+    h1, h2, li {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    h1 {
+        margin-right: 0px;
+    }
+
+    #results {
+        overflow: auto;
+    }
+
+    form {
+        padding: 10px
+    }
+
+    input {
+        width: 45%;
+        padding: 20px 0px 20px 10px;
+    }
+
+
+    a.about {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .about {
+        margin-bottom: 24px;
+    }
+
+    .circle, .circle-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        font-size: 16px;
+        display: inline-block;
+        margin-bottom: -2px; 
+    }
+
+    .circle-indicator {
+        margin-left: 5px;
+    }
+
+    .circle {
+        margin-left: 0px;
+    }
+
+    a.exit {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    #exit-nav {
+        margin-top: 22px;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    form {
+        width: 100%;
+        position: fixed;
+    }
+    
+    input {
+        width: 33%;
+    }
+
+    #results {
+        display: flex;
+        flex-flow: column wrap;  
+        overflow: hidden;
+        margin-top: 70px;
+    }
+
+    li {       
+        width: 50%;
+    }
+
+    h1, h2, li {
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    a.exit {
+        font-size: 16px;
+    }
 
     input {
         height: 25px;
-        border: 1px solid black;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        width: 100%;
-        padding-left: 10px;
-    }
-        
-    #results {
-        height: 80vh;
-        font-family: Relative;        
-        margin: 10px;
-        padding: 10px;
-        color: black;
     }
 
-    li {
-        list-style: none;
-        margin-bottom: 12px;
+    .circle, .circle-indicator {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-bottom: -1.4px;
     }
 
-    div.about {
-        position: fixed;
-        font-family: Relative, Helvetica;
-        color: black;
-        font-size: 16px;
-        bottom: 0;
-         margin-left: 10px; 
-         margin-bottom: 20px; 
-        text-decoration: none;
-        color: black;
+    .circle-indicator {
+        margin-left: 5px;
     }
-    
-    a { 
-       text-decoration: none;
-       color: black;
-       padding: 10px;
-  
+
+    .circle {
+        margin-left: 0px;
     }
 
 
+}   
 
-    }
-    
-}
