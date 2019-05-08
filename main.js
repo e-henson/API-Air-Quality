@@ -16,10 +16,11 @@ function resetUI() {
 //when form is submitted, get the info from input
 formTag.addEventListener("submit", function(event) {
     resetUI();
-    // insert spinner now...
-    $location.html('<img src="spinner.png" />');
+    // insert spinner
+    $('#results').html('<img class="loader" src="loader.gif"/>');
 	//stop form from going to next page
     event.preventDefault();
+
     // get the info from input 
     const searchTerm = inputTag.value;
 
@@ -61,23 +62,6 @@ formTag.addEventListener("submit", function(event) {
             //add the aqi result to the aqi container                        
             aqiContainer.innerText = airQualityIndex;
 
-            if(aqi > 0 && aqi <= 50) {
-                circleIndicatorContainer.classList.add("circle-green-good");
-            } else if (aqi >= 51 && aqi <= 100) {
-                circleIndicatorContainer.classList.add("circle-yellow-moderate");  
-            } else if (aqi >= 101 && aqi <= 150) {
-                circleIndicatorContainer.classList.add("circle-orange-unhealthy");
-            } else if (aqi >= 151 && aqi <= 200) {
-                circleIndicatorContainer.classList.add("circle-red-v-unhealthy");
-            } else if (aqi >= 201 && aqi <= 300) {
-                circleIndicatorContainer.classList.add("circle-purple-v-v-unhealthy");              
-            } else if (aqi >= 301 && aqi <= 500)  {
-                circleIndicatorContainer.classList.add("circle-purple-hazardous");                             
-            } else {
-                circleIndicatorContainer.style.display = "none";
-            }
-      
-
             addResult.appendChild(locationContainer);
             addResult.appendChild(aqiContainer);
             addResult.appendChild(circleIndicatorContainer);
@@ -85,14 +69,33 @@ formTag.addEventListener("submit", function(event) {
             // resultsTag.appendChild(addResult);
 
 
-            if(aqi === "") {
-                resultsTag.removeChild(addResult);
-            // } else if (aqi === "-") {
-            //     resultsTag.removeChild(addResult);
+            if(aqi === "-") {
+                // resultsTag.removeChild(addResult);
+                return;
+            } else if (aqi === "") {
+                // resultsTag.removeChild(addResult);
+                return;
             } else {
                 resultsTag.appendChild(addResult);               
             }
 
+
+            if(aqi > 0 && aqi <= 50) {
+                circleIndicatorContainer.classList.add("circle-indicator", "circle-green-good");
+            } else if (aqi >= 51 && aqi <= 100) {
+                circleIndicatorContainer.classList.add("circle-indicator", "circle-yellow-moderate");  
+            } else if (aqi >= 101 && aqi <= 150) {
+                circleIndicatorContainer.classList.add("circle-indicator", "circle-orange-unhealthy");
+            } else if (aqi >= 151 && aqi <= 200) {
+                circleIndicatorContainer.classList.add("circle-indicator", "circle-red-v-unhealthy");
+            } else if (aqi >= 201 && aqi <= 300) {
+                circleIndicatorContainer.classList.add("circle-indicator", "circle-purple-v-v-unhealthy");              
+            } else if (aqi >= 301 && aqi <= 500)  {
+                circleIndicatorContainer.classList.add("circle-indicator", "circle-purple-hazardous");                             
+            } else {
+                circleIndicatorContainer.style.display = "none";
+            }
+      
             });
 
         });
@@ -104,7 +107,7 @@ formTag.addEventListener("submit", function(event) {
     const toggleNav = document.getElementsByClassName("toggle-nav")[0];
 
     viewNav.addEventListener("click", (e) => {
-        toggleNav.classList.add("on");      
+        toggleNav.classList.add("on");  
     });
 
     //turn off about nav
