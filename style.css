@@ -253,7 +253,7 @@ h2 {
 
     a.exit, a.about {
         font-size: 12px;
-        padding: 14px 0px 14px 0px;
+        padding: 14px 12px 14px 12px;
     }
 
     a:hover {
@@ -445,5 +445,7 @@ h2 {
     }
 
 }   
+
+
 
 
