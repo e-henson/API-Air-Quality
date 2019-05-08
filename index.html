@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>pollut.or</title>
-    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,43 +16,79 @@
         </form>
 
         <ul id="results"></ul>
-    </div>
 
-    <div id = "about" class="about">
-            <a href="#">About</a>
+        <div id = "about" class="about">
+            <a class="about" href="#">about</a>
+        </div>
     </div>
 
     <div class="toggle-nav"> 
 
         <div id="exit-nav">
-            <a href="#">exit</a>
+            <a class="exit" href="#">exit</a>
         </div>
 
-        <h1>
-            pollut.or uses World Air Quality Index (WAQI) data to allow users to search the air quality for a searched location. 
-        </h1>
+        <div class="toggle-content">
 
-        <div class="indicators">
-            <div class="circle circle-green-good"></div>
-            <div class="circle circle-yellow-moderate"></div> 
-            <div class="circle circle-orange-unhealthy"></div> 
-            <div class="circle circle-red-v-unhealthy"></div> 
-            <div class="circle circle-purple-v-v-unhealthy"></div> 
-            <div class="circle circle-purple-hazardous"></div> 
+            <div class="introduction">
+                <h1 >
+                    pollut.or uses the World Air Quality Index (WAQI) API to pull in data allowing users to search the air quality for locations all around the world!
+                </h1>
+            </div>
+
+            <div id="key">
+                <h1 >
+                    Index of indicators:
+                </h1>
+            </div>
+        
+            <div class="indicators">
+                <h1>Air Quality Index: 0 - 50</h1>                
+                <div class="circle" id="good"></div>
+                <h2>Good: air quality poses little to no risk</h2>
+            </div>
+
+            <div class="indicators">
+                <h1>Air Quality Index: 51 - 100</h1>
+                <div class="circle" id="moderate"></div>
+                <h2>Moderate: air quality is acceptable, but some pollutants might be of moderate health concern for sensitive groups</h2>
+            </div>
+
+            <div class="indicators">
+                <h1>Air Quality Index: 101 - 150</h1>
+                <div class="circle" id="sensitive"></div>
+                <h2>Unhealthy for sensitive groups: general public not likely to be affected, but members of sensitive groups are likely to experience health effects</h2>
+            </div>
+
+            <div class="indicators">
+                <h1>Air Quality Index: 151 - 200</h1>
+                <div class="circle" id="unhealthy"></div>
+                <h2>Unhealthy: everyone may begin to experience health effects</h2>
+            </div>
+
+            <div class="indicators">
+                <h1>Air Quality Index: 201 - 300</h1>
+                <div class="circle" id="very-unhealthy"></div>
+                <h2>Very unhealthy: everyone may begin to experience serious health effects</h2>
+            </div>
+
+            <div class="indicators">
+                <h1>Air Quality Index: 301 - 500</h1>
+                <div class="circle" id="hazardous"></div>
+                <h2>Hazardous: the entire population is likely to be affected</h2>
+            </div>
+            
         </div>
+
     </div>
 
-    <section>
-        <!-- three.js in here -->
+    <section id="canvas">
+
     </section>
 
  <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="crossorigin="anonymous"></script>   
- <!-- <script src="three.min.js"></script>  -->
- <script src="LoaderSupport.js"></script>
- <script src="OBJLoader.js"></script>
- <script src="OBJLoader2.js"></script>
- <script src="GLTFLoader.js"></script>
- <script src="flower.js"></script>  
+ <script src="three.min.js"></script> 
+ <script src="three-background.js"></script>  
  <script src="main.js"></script>  
 </body>
 </html>
